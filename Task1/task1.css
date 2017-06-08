@@ -1,0 +1,204 @@
+/* Let's dive straight into the CSS! */
+
+/* Set some overall styles */
+* {
+    /* Good to be safe, avoid nasty defaults */
+    margin: 0;
+    padding: 0;
+    /* Animate everything, just for fun! */
+    transition: all 0.3s ease-in-out;
+}
+
+/* Set some fonts for headers and text */
+body {
+    font-family: 'Covered By Your Grace', cursive;
+    color: black;
+    background-color: #FFFFD3;
+    margin-top: 15px;
+}
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Permanent Marker', cursive;
+    text-align: center;
+}
+h1 {
+    font-size: 56px;
+}
+
+/* Make the inputs look nice */
+input, textarea, select, button {
+    margin:  20px auto;
+    font-family: 'Covered By Your Grace', cursive;
+    font-size: 24px;
+    /* Rounded corner borders */
+    border-radius: 10px;
+    border:  3px solid gray;
+    padding:  5px;
+    background: none;
+    display: block;
+}
+button {
+    cursor: pointer;
+    display: inline-block;
+}
+
+/** 
+ * Give the page an inner container
+ *
+ * Making the width a percentage keeps it responsive to the width
+ * of the device.
+ */
+.main-container {
+    width: 85%;
+    padding: 15px 0;
+    margin: 20px auto;
+    background-color: #FFFFFF;
+    border: 8px solid black;
+    text-align: center;
+}
+
+/** 
+ * Make the notes look like sticky notes
+ *
+ * The prefixes before the transform property ensures that it runs the way it
+ * should, regardless of the browser. These are called vendor prefixes.
+ */
+.note {
+    color: black;
+    position: relative;
+    /* Notes can scale with the content, but have a minimum size */
+    min-width: 260px;
+    min-height: 260px;
+    margin: 15px;
+    box-shadow: 20px 10px 30px #BBBBBB;
+    display: inline-block;
+    -webkit-transform: rotate(-4deg);
+       -moz-transform: rotate(-4deg);
+         -o-transform: rotate(-4deg);
+            transform: rotate(-4deg);
+    border-bottom-right-radius: 60px 5px;
+}
+
+/**
+ * Different colors for different priorities 
+ */
+.low {
+    background-color: #B9E397;
+}
+.medium {
+    background-color: #ffff80;
+}
+.high {
+    background-color: #D69496;
+}
+
+/* Center all the notes */
+#notes-container {
+    text-align: center;
+}
+
+/** 
+ * Use the :nth-child selector to give only certain 
+ * divisible notes a rotation. This gives the effect
+ * of random note placement
+ */
+#notes-container div:nth-child(2n) {
+    -webkit-transform: rotate(3deg);
+       -moz-transform: rotate(3deg);
+         -o-transform: rotate(3deg);
+            transform: rotate(3deg);
+}
+#notes-container div:nth-child(3n) {
+    -webkit-transform: rotate(-2deg);
+       -moz-transform: rotate(-2deg);
+         -o-transform: rotate(-2deg);
+            transform: rotate(-2deg);
+}
+#notes-container div:nth-child(5n) {
+    -webkit-transform: rotate(5deg);
+       -moz-transform: rotate(5deg);
+         -o-transform: rotate(5deg);
+            transform: rotate(5deg);
+}
+
+/* Style the contents of the note */
+.note-title {
+    width: 240px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-wrap: break-word;
+    margin: 10px;
+}
+.note-body {
+    text-align: left;
+    font-family: 'Covered By Your Grace', cursive;
+    padding: 10px;
+    font-size: 26px;
+    max-width: 300px;
+    word-wrap: break-word;
+}
+
+/** 
+ * Style the Edit and close buttons
+ * 
+ * Notice that there's a common style for any button in general, and then
+ * styles specific to the edit and the close buttons.  Avoid repeating CSS
+ * properties when you can club them under a common class. That way, when you
+ * want to change something, you only change it on one place.
+ */
+.note-button {
+    color: white;
+    width: 35px;
+    height:  35px;
+    position: absolute;
+    cursor: pointer;
+    font-size: 20px;
+    margin: 3px;
+    opacity: 0.3;
+    border: none;
+    background-color: gray;
+    z-index: 100;
+    border-radius: 50%;
+}
+.note-edit {
+    right: 50px;
+    top: 5%;
+}
+.note-close {
+    right: 6px;
+    top: 5%;
+}
+.note-button:hover {
+    opacity: 1;
+}
+
+/**
+ * Next, we have some rules called media queries.  This lets us change our CSS
+ * properties, based on the width of the screen. We can use this to make out
+ * site mobile and tablet compatible
+ *
+ * You can define any properties you want inside the media query, and once the
+ * rule matches the new properties take effect.
+ *
+ * Let's use this to make our sticky notes take a percentage value when on a
+ * small screen. This makes sure that there will be only one neat column of
+ * notes
+ *
+ * Try making your browser window narrower to see media queries in action
+ */
+@media screen and (max-width: 600px) {
+    .note {
+        min-width: 90%;
+    } 
+}
+
+/* Loads of ♥ ! */
+footer {
+    width: 100%;
+    bottom: 0;
+    padding: 15px 0;
+    text-align: center;
+}
+.footer-content a {
+    text-decoration: none;
+}

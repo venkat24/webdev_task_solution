@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Delta Task 1</title>
+
+    <!-- Mobile Responsive -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Covered+By+Your+Grace|Permanent+Marker" rel="stylesheet">
+
+    <!-- Main CSS -->
+    <link rel="stylesheet" type="text/css" href="task1.css">
+</head>
+
+<body>
+    <h1>Notes</h1>
+    <!-- Main Container -->
+    <div class="main-container">
+        <!-- Create Note inputs -->
+        <input placeholder="title" class="title"></input>
+        <textarea placeholder="message" class="content"min-></textarea>
+        <select name="priority" class="priority">
+          <option value="3">High</option>
+          <option value="2" selected>Medium</option>
+          <option value="1">Low</option>
+        </select>
+        <!-- Button that creates a new note. Notice that onclick is used to
+        link it to a Javascript function -->
+        <button onclick="noteCreate(event)">Create Note</button>
+        <!-- Button to sort the existing notes -->
+        <button onclick="noteSort()">Sort Notes</button>
+
+
+        <div id="notes-container"><!-- Where the actual notes will eventually go --></div>
+
+    </div>
+
+    <!-- Fluff -->
+    <footer>
+        <div class="footer-content">Made with ♥ by <a href="http://inductions.deltaforce.club">Delta Force</a></div>
+    </footer>
+
+
+    <!-- The Good Stuff -->
+    <script type="text/javascript" src="task1.js"></script>
+</body>
+</html>
