@@ -90,6 +90,9 @@ button {
 .high {
     background-color: #D69496;
 }
+.urgent {
+    background-color: red;
+}
 
 /* Center all the notes */
 #notes-container {
