@@ -22,6 +22,7 @@
 var notes = [];
 var noteCount = 1;
 var priorityClasses = {
+    4 : 'urgent',
     3 : 'high',
     2 : 'medium',
     1 : 'low',
@@ -201,6 +202,7 @@ function noteEditStart(event) {
     elementToEdit.innerHTML += '<input class="title" value="'+currentNote.title+'"></input>';
     elementToEdit.innerHTML += '<textarea class="content">'+currentNote.content+'</textarea>';
     elementToEdit.innerHTML += '<select name="priority" class="priority">' +
+                               '<option value="4">Urgent</option>' +
                                '<option value="3">High</option>' +
                                '<option value="2">Medium</option>' +
                                '<option value="1">Low</option>' +
