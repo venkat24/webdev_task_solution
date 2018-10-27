@@ -248,6 +248,7 @@ function noteEditFinish(event) {
         if(notes[i].id === elementCountId) {
             notes[i].title = newTitle;
             notes[i].content = newContent;
+            notes[i].priority = newPriority;
             break;
         }
     }
@@ -302,6 +303,7 @@ function noteSort() {
  * store strings in localStorage
  */
 function noteStore() {
+    console.log(notes);
     localStorage.setItem('notes',JSON.stringify(notes));
     localStorage.setItem('noteCount',String(noteCount));
 }
