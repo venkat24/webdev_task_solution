@@ -22,6 +22,7 @@
 var notes = [];
 var noteCount = 1;
 var priorityClasses = {
+    4 : 'urgent',
     3 : 'high',
     2 : 'medium',
     1 : 'low',
@@ -201,6 +202,7 @@ function noteEditStart(event) {
     elementToEdit.innerHTML += '<input class="title" value="'+currentNote.title+'"></input>';
     elementToEdit.innerHTML += '<textarea class="content">'+currentNote.content+'</textarea>';
     elementToEdit.innerHTML += '<select name="priority" class="priority">' +
+                               '<option value="4">Urgent</option>' +
                                '<option value="3">High</option>' +
                                '<option value="2">Medium</option>' +
                                '<option value="1">Low</option>' +
@@ -246,6 +248,7 @@ function noteEditFinish(event) {
         if(notes[i].id === elementCountId) {
             notes[i].title = newTitle;
             notes[i].content = newContent;
+            notes[i].priority = newPriority;
             break;
         }
     }
@@ -300,6 +303,7 @@ function noteSort() {
  * store strings in localStorage
  */
 function noteStore() {
+    console.log(notes);
     localStorage.setItem('notes',JSON.stringify(notes));
     localStorage.setItem('noteCount',String(noteCount));
 }
